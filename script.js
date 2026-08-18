@@ -1,3 +1,8 @@
+// --- REPLACE THESE WITH YOUR REAL DETAILS ---
+const MY_WHATSAPP_NUMBER = "ENTER_NUMBER_HERE"; // e.g. 919876543210 (country code without +, spaces, or dashes)
+const MY_EMAIL_ADDRESS = "ENTER_EMAIL_HERE";    // e.g. you@example.com
+// --------------------------------------------
+
 document.addEventListener('DOMContentLoaded', () => {
     // State
     let selectedTime = '';
@@ -21,7 +26,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext3 = document.getElementById('btn-next-3');
     const btnNext4 = document.getElementById('btn-next-4');
     
-    const btnShareInvite = document.getElementById('btn-share-invite');
+    const btnShareWhatsapp = document.getElementById('btn-share-whatsapp');
+    const btnShareEmail = document.getElementById('btn-share-email');
     
     const datePicker = document.getElementById('date-picker');
     const timePicker = document.getElementById('time-picker');
@@ -32,6 +38,9 @@ document.addEventListener('DOMContentLoaded', () => {
     
     const btnEmail = document.getElementById('btn-email');
     const btnWhatsapp = document.getElementById('btn-whatsapp');
+    
+    const btnNoWhatsapp = document.getElementById('btn-no-whatsapp');
+    const btnNoEmail = document.getElementById('btn-no-email');
     
     // Navigation Function
     function goToStep(currentStepIndex, nextStepIndex) {
@@ -62,13 +71,39 @@ document.addEventListener('DOMContentLoaded', () => {
         goToStep(5, 0); // go back to step 1
     });
 
-    // Share Invitation Button
-    btnShareInvite.addEventListener('click', () => {
-        const publicUrl = "https://MilanPatel2810.github.io/my-date-invitation-app/";
-        const subject = encodeURIComponent('I made something for you 🌸');
-        const body = encodeURIComponent(`Hey ❤️\n\nI made this little website for you.\n\nOpen it here:\n${publicUrl}\n\n🌸`);
-        window.location.href = `mailto:?subject=${subject}&body=${body}`;
-    });
+    // NO screen Share Buttons
+    if (btnNoWhatsapp) {
+        btnNoWhatsapp.addEventListener('click', () => {
+            const text = encodeURIComponent('Hey, I saw your date invitation 🌸 I selected NO 🥺 Thank you for asking and I hope you understand ❤️');
+            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${text}`, '_blank');
+        });
+    }
+
+    if (btnNoEmail) {
+        btnNoEmail.addEventListener('click', () => {
+            const subject = encodeURIComponent('My response to your invitation 🌸');
+            const body = encodeURIComponent('Hey, I saw your date invitation 🌸 I selected NO 🥺 Thank you for asking and I hope you understand ❤️');
+            window.location.href = `mailto:${MY_EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+        });
+    }
+
+    // Share Website Buttons
+    const publicWebsiteUrl = "https://MilanPatel2810.github.io/my-date-invitation-app/";
+
+    if (btnShareWhatsapp) {
+        btnShareWhatsapp.addEventListener('click', () => {
+            const text = encodeURIComponent(`Hey 🌸 I made something for you. Open this link: ${publicWebsiteUrl}`);
+            window.open(`https://wa.me/?text=${text}`, '_blank');
+        });
+    }
+
+    if (btnShareEmail) {
+        btnShareEmail.addEventListener('click', () => {
+            const subject = encodeURIComponent('I made something for you 🌸');
+            const body = encodeURIComponent(`Hey 🌸 I made this little website for you. Open it here: ${publicWebsiteUrl}`);
+            window.location.href = `mailto:?subject=${subject}&body=${body}`;
+        });
+    }
 
     // Step 1 -> 2
     btnYes.addEventListener('click', () => {
