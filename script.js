@@ -1,6 +1,6 @@
 // --- REPLACE THESE WITH YOUR REAL DETAILS ---
-const MY_WHATSAPP_NUMBER = "ENTER_NUMBER_HERE"; // e.g. 919876543210 (country code without +, spaces, or dashes)
-const MY_EMAIL_ADDRESS = "ENTER_EMAIL_HERE";    // e.g. you@example.com
+const MY_WHATSAPP_NUMBER = "ENTER_MY_NUMBER"; // e.g. 919876543210 (country code without +, spaces, or dashes)
+const MY_EMAIL_ADDRESS = "ENTER_MY_EMAIL";    // e.g. you@example.com
 // --------------------------------------------
 
 document.addEventListener('DOMContentLoaded', () => {
@@ -73,17 +73,23 @@ document.addEventListener('DOMContentLoaded', () => {
 
     // NO screen Share Buttons
     if (btnNoWhatsapp) {
-        btnNoWhatsapp.addEventListener('click', () => {
-            const text = encodeURIComponent('Hey, I saw your date invitation 🌸 I selected NO 🥺 Thank you for asking and I hope you understand ❤️');
-            window.open(`https://wa.me/${MY_WHATSAPP_NUMBER}?text=${text}`, '_blank');
-        });
+        const text = encodeURIComponent('Hey, I saw your date invitation 🌸 I selected NO 🥺 Thank you for asking and I hope you understand ❤️');
+        btnNoWhatsapp.href = `https://wa.me/${MY_WHATSAPP_NUMBER}?text=${text}`;
     }
 
     if (btnNoEmail) {
-        btnNoEmail.addEventListener('click', () => {
-            const subject = encodeURIComponent('My response to your invitation 🌸');
-            const body = encodeURIComponent('Hey, I saw your date invitation 🌸 I selected NO 🥺 Thank you for asking and I hope you understand ❤️');
-            window.location.href = `mailto:${MY_EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+        const subject = encodeURIComponent('My response to your invitation 🌸');
+        const body = encodeURIComponent('Hey, I saw your date invitation 🌸 I selected NO 🥺 Thank you for asking and I hope you understand ❤️');
+        
+        // Primary Gmail link
+        btnNoEmail.href = `https://mail.google.com/mail/?view=cm&fs=1&to=${MY_EMAIL_ADDRESS}&su=${subject}&body=${body}`;
+        
+        // Fallback for when clicked (if blocked, try mailto)
+        btnNoEmail.addEventListener('click', (e) => {
+            // Give a tiny delay, if the window couldn't open, we fallback to mailto
+            setTimeout(() => {
+                window.location.href = `mailto:${MY_EMAIL_ADDRESS}?subject=${subject}&body=${body}`;
+            }, 500);
         });
     }
 
