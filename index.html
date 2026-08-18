@@ -1,0 +1,123 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Will you go on a date with me?</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Fredoka:wght@400;500;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div id="flower-container"></div>
+    <div id="confetti-container"></div>
+
+    <div class="main-container">
+        <!-- Step 1: Main Question -->
+        <div id="step-1" class="card active">
+            <img src="assets/cat.gif" alt="Cute Cat" class="top-img rounded-sq">
+            <h1>🌸 Will you go on a date with<br>me? 🌸</h1>
+            <div class="btn-container">
+                <button id="btn-yes" class="btn-pink">YES 💘</button>
+                <button id="btn-no" class="btn-no-normal">NO 🥺</button>
+            </div>
+        </div>
+
+        <!-- Step NO: Rejection -->
+        <div id="step-no" class="card hidden">
+            <img src="assets/no.gif" alt="Sad Face" class="top-img rounded-sq">
+            <h1>Aww okay 🥺</h1>
+            <p class="subtitle">No worries, I respect your answer ❤️<br><br><span class="italic-text">Still glad I asked
+                    you 🌸</span></p>
+            <button id="btn-back" class="btn-pink btn-full">back to start 🌸</button>
+        </div>
+
+        <!-- Step 2: Reaction -->
+        <div id="step-2" class="card hidden">
+            <img src="assets/celebration.gif" alt="Celebration" class="top-img rounded-sq">
+            <h1>WAIT YOU ACTUALLY<br>SAID YES?? 😭</h1>
+            <p class="subtitle">I was so ready for you to say no 🥺</p>
+            <button id="btn-next-2" class="btn-pink">okay okay! &rarr;</button>
+        </div>
+
+        <!-- Step 3: Date & Time -->
+        <div id="step-3" class="card hidden">
+            <div class="icon-header">🗓️🐾</div>
+            <h1>So... when are you free?</h1>
+
+            <div class="form-group">
+                <label>Pick a Day ✨</label>
+                <input type="date" id="date-picker">
+            </div>
+
+            <div class="form-group">
+                <label>What Time? ⏰</label>
+                <input type="time" id="time-picker">
+            </div>
+
+            <div id="error-msg" class="error-msg hidden">Please select a date and time! 🥺</div>
+            <button id="btn-next-3" class="btn-pink btn-full">set the date! 💌</button>
+        </div>
+
+        <!-- Step 4: Food Selection -->
+        <div id="step-4" class="card hidden">
+            <h1>What are we feeling? ✨</h1>
+            <div class="food-grid">
+                <div class="food-card" data-food="Pizza 🍕">
+                    <span class="emoji">🍕</span>
+                    <span class="label">Pizza</span>
+                </div>
+                <div class="food-card" data-food="Burgers 🍔">
+                    <span class="emoji">🍔</span>
+                    <span class="label">Burgers</span>
+                </div>
+                <div class="food-card" data-food="Pasta 🍝">
+                    <span class="emoji">🍝</span>
+                    <span class="label">Pasta</span>
+                </div>
+                <div class="food-card" data-food="Tacos 🌮">
+                    <span class="emoji">🌮</span>
+                    <span class="label">Tacos</span>
+                </div>
+                <div class="food-card" data-food="Coffee ☕">
+                    <span class="emoji">☕</span>
+                    <span class="label">Coffee</span>
+                </div>
+                <div class="food-card" data-food="Tea 🫖">
+                    <span class="emoji">🫖</span>
+                    <span class="label">Tea</span>
+                </div>
+            </div>
+            <button id="btn-next-4" class="btn-pink btn-full disabled">this one! &rarr;</button>
+        </div>
+
+        <!-- Step 5: Final -->
+        <div id="step-5" class="card hidden">
+            <img src="assets/final-image.jpg" alt="Romantic" class="top-img rounded-circle">
+            <h1 id="final-heading">glad you didn't say no. be ready by 6, I'm coming to get you 🚗</h1>
+
+            <div class="date-summary">
+                <h3>Our Date ❤️</h3>
+                <p id="summary-date">📅 Date: </p>
+                <p id="summary-time">⏰ Time: </p>
+                <p id="summary-food">🍽️ Food/Drink: </p>
+            </div>
+
+            <p class="italic-text">P.S. normal people text. I made a website on Replit. during lunch. for you. no big
+                deal.</p>
+            <div class="share-buttons">
+                <button id="btn-email" class="btn-pink btn-full">Send by Email 📧</button>
+                <button id="btn-whatsapp" class="btn-whatsapp btn-full">Send on WhatsApp 💚</button>
+            </div>
+        </div>
+    </div>
+
+    <footer>built on Replit 🌸</footer>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
