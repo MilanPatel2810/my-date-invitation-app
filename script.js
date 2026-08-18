@@ -21,6 +21,8 @@ document.addEventListener('DOMContentLoaded', () => {
     const btnNext3 = document.getElementById('btn-next-3');
     const btnNext4 = document.getElementById('btn-next-4');
     
+    const btnShareInvite = document.getElementById('btn-share-invite');
+    
     const datePicker = document.getElementById('date-picker');
     const timePicker = document.getElementById('time-picker');
     const errorMsg = document.getElementById('error-msg');
@@ -58,6 +60,14 @@ document.addEventListener('DOMContentLoaded', () => {
 
     btnBack.addEventListener('click', () => {
         goToStep(5, 0); // go back to step 1
+    });
+
+    // Share Invitation Button
+    btnShareInvite.addEventListener('click', () => {
+        const publicUrl = "https://MilanPatel2810.github.io/my-date-invitation-app/";
+        const subject = encodeURIComponent('I made something for you 🌸');
+        const body = encodeURIComponent(`Hey ❤️\n\nI made this little website for you.\n\nOpen it here:\n${publicUrl}\n\n🌸`);
+        window.location.href = `mailto:?subject=${subject}&body=${body}`;
     });
 
     // Step 1 -> 2
