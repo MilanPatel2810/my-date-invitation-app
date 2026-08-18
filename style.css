@@ -383,6 +383,21 @@ footer {
     100% { transform: translateY(100vh) rotate(720deg); opacity: 0; }
 }
 
+.no-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+    align-items: center;
+    width: 100%;
+    margin-top: 20px;
+}
+
+.no-actions .btn-full {
+    margin-top: 0;
+    width: 90%;
+    min-height: 55px;
+}
+
 @media (max-width: 600px) {
     .card {
         padding: 40px 20px;
@@ -408,6 +423,10 @@ footer {
     }
     
     .btn-full {
+        width: 100%;
+    }
+    
+    .no-actions .btn-full {
         width: 100%;
     }
 }
